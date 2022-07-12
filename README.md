@@ -41,8 +41,14 @@ npm install react-native-datepicker --save
 ```
 # conectando com o banco
 estrutura pronta para conectar com banco do Xampp
-- criar um arquivo "conexao.php" com esse conteudo abaixo
-```bash
+- link do banco do xampp 
+```
+http://localhost/phpmyadmin/
+```
+
+- criar um arquivo "conexao.php" com esse código abaixo
+
+```php
 <?php 
 // componentes essenciais para o projeto
 header('Access-Control-Allow-Origin: *');
