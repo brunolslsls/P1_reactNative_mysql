@@ -39,7 +39,9 @@ npm i react-icons
 ```bash
 npm install react-native-datepicker --save
 ```
-# conectando com o banco
+# material do projeto
+
+##conectando com o banco
 estrutura pronta para conectar com banco do Xampp
 - link do banco do xampp 
 ```
@@ -72,6 +74,21 @@ try {
 }
 
  ?>
+```
+
+## Arquivo app.js
+- bibliotecas necessarias
+
+```js
+import { StatusBar } from 'expo-status-bar';
+import React,{useState, useEffect} from 'react';
+import { StyleSheet, Text, View, Modal, TouchableOpacity, SafeAreaView, TextInput, Alert, ScrollView } from 'react-native';
+import {FaCheckCircle, FaTrash, FaPen } from 'react-icons/fa'; // npm i react-icons
+import axios from 'axios'; // npm i axios
+import { ListGroupItemHeading } from 'reactstrap';
+import * as Animatable from 'react-native-animatable';
+import {Ionicons} from '@expo/vector-icons';
+import Login from './src/login';
 ```
 
 # Autor
