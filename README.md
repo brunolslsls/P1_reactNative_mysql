@@ -248,13 +248,16 @@ const estilos = StyleSheet.create({
 ```php
 <?php>
 
-    include_once('conexao.php'); // inclui as variaveis do arquivo "conexao.php" nesce arquivo
+include_once('conexao.php'); // inclui as variaveis do arquivo "conexao.php" nesce arquivo
 
 $query = $pdo->query("SELECT * FROM usuarios order by id desc"); // "listar todos dados" da tabela "usuarios" por "id" em ordem "decresente" 
 $res = $query->fetchAll(PDO::FETCH_ASSOC); // fetAll = percorre todos itens da tabela e PDO::FETCH_ASSOC = percorrer de forma de matriz 
 
 for ($i = 0; $i < count($res); $i++) {      // percorre todos itens da tabela
-    foreach ($res[$i] as $key => $value) { // o comando $res[$i] recebe apelido com "as" e agora pode ser chamado como "$key", e assim temos (chave => valor que a chave recebe)  
+   
+   // o comando $res[$i] recebe apelido com "as" e agora pode ser chamado como "$key", e assim temos (chave => valor que a chave recebe)  
+   // lembre que isso aqui é invalido ($res[$i] => $value ) logo precisamos do "as" para fazer codigo funcionar
+    foreach ($res[$i] as $key => $value) {  
     }
 
     // pegar dados que esta no "$res" e colocar em um novo array de Objetos
