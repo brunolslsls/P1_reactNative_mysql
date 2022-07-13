@@ -243,7 +243,7 @@ const estilos = StyleSheet.create({
 */
 ```
 ## Arquivo listar.php
-- bibliotecas necessarias
+- Esse arquivo lista os itens do banco
 
 ```php
 <?php>
