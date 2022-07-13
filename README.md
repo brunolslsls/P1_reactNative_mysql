@@ -90,6 +90,36 @@ import * as Animatable from 'react-native-animatable';
 import {Ionicons} from '@expo/vector-icons';
 import Login from './src/login';
 ```
+## Arquivo listar.php
+- bibliotecas necessarias
+
+```php
+<?php>
+
+    include_once('conexao.php'); // inclui as variaveis do arquivo "conexao.php" nesce arquivo
+
+$query = $pdo->query("SELECT * FROM usuarios order by id desc"); // "listar todos dados" da tabela "usuarios" por "id" em ordem "decresente" 
+$res = $query->fetchAll(PDO::FETCH_ASSOC); // fetAll = percorre todos itens da tabela e PDO::FETCH_ASSOC = percorrer de forma de matriz 
+
+for ($i = 0; $i < count($res); $i++) {      // percorre todos itens da tabela
+    foreach ($res[$i] as $key => $value) { // o comando $res[$i] recebe apelido com "as" e agora pode ser chamado como "$key", e assim temos (chave => valor que a chave recebe)  
+    }
+
+    // pegar dados que esta no "$res" e colocar em um novo array de Objetos
+    // para fazer isso pecorre os itens da tabela de forma vertical com o comando abaixo
+    $dados[]  = array(
+        'id' => $res[$i]['id'],       // chave "id do $dados"  recebe valores da coluna "id do $res[$i]['id']"
+        'nome' => $res[$i]['nome'],   // chave "nome do $dados"  recebe valores da coluna "nome do $res[$i]['id']"
+        'email' => $res[$i]['email'], // chave "email do $dados"  recebe valores da coluna "email do $res[$i]['id']"
+        'senha' => $res[$i]['senha'], // chave "senha do $dados"  recebe valores da coluna "senha do $res[$i]['id']"
+    );
+
+
+}
+
+?>
+
+```
 
 # Autor
 
