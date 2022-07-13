@@ -240,7 +240,8 @@ const estilos = StyleSheet.create({
   }
 });
 
-*/```
+*/
+```
 ## Arquivo listar.php
 - bibliotecas necessarias
 
