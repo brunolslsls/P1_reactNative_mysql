@@ -25,15 +25,28 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 # intalações necessarias
 ## bootstrap não roda em React Native, apenas em ReactJS
 
+- intalação do bootstrap apenas para ReactJS:
 ```bash
-npm install --save reactstrap react react-dom
+npm install react-bootstrap bootstrap
 ```
+```bash
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+- Reactstrap não incorpora seus próprios estilos e, em vez disso, depende da estrutura CSS do Bootstrap para seus estilos e temas. Isso permite que você tenha estilos consistentes em seus componentes baseados em React e partes estáticas do seu site, e permite incluir seu próprio tema Bootstrap personalizado quando necessário.
+- Ao contrário de usar o Bootstrap em HTML, o Reactstrap exporta todas as classes corretas do Bootstrap automaticamente e não precisa usar ou incluir os arquivos JavaScript do Bootstrap ou adicionar atributos de dados para acionar a funcionalidade. Em vez disso, os componentes são definidos em componentes compatíveis com React com props apropriados para você controlar.
+```bash
+npm install --save reactstrap react react-dom 
+```
+- Inclua ícones populares em seus projetos React facilmente com react-icons, que utiliza importações ES6 que permitem incluir apenas os ícones que seu projeto está usando.
 ```bash
 npm i react-icons
 ```
+- Axios é um cliente HTTP baseado em Promises para fazer requisições. Pode ser utilizado tanto no navegador quando no Node.js:
 ```bash
  npm i axios
 ```
+- Um componente seletor de data nativo de reação multiplataforma para Android e ios. Inclui 3 modos diferentes: data, hora e data/hora. O seletor de datas é personalizável e tem suporte a vários idiomas.
 ```bash
 npm install react-native-datepicker --save
 ```
