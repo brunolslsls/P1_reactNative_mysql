@@ -21,6 +21,7 @@ A aplicação consiste em adicionar e listar os dados em um dispositivo mobile
 - Android Studio
 - Mysql
 - Xampp
+- JSON Viewer (exteção do chrome)
 
 # intalações necessarias
 ## bootstrap não roda em React Native, apenas em ReactJS
