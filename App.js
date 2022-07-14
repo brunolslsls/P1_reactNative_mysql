@@ -1,20 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Modal, TouchableOpacity, SafeAreaView, TextInput, Alert, ScrollView } from 'react-native';
+import { FaCheckCircle, FaTrash, FaPen } from 'react-icons/fa'; // npm i react-icons
+import axios from 'axios'; // npm i axios
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+function App() {
+
+  const [lista, setLista] = useState([]); // criar variaveis objetos
+  const [nome, setNome] = useState('');   // criar variaveis String
+  const [email, setEmail] = useState(''); // criar variaveis String
+  const [senha, setSenha] = useState(''); // criar variaveis String
+  const [id, setId] = useState('');        // criar variaveis String
+  const [buscar, setBuscar] = useState('');// criar variaveis String
+
+  /**
+   * Hooks são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
+   * O Effect Hook (Hook de Efeito) te permite executar efeitos colaterais em componentes funcionais:
+   */
+  useEffect(() => {
+    listarDados();
+  }, [])
+
+
+  //async: permite utiliza (await) na function
+  // await: permite esperar até a tarefa seja finaliza e depois continua lendo o resto do codigo
+
+  async function listarDados() {
+    const res = await axios.get('http://localhost/myApp/listar.php'); // get = pega os dados desse endereco e armazena em (res)
+    setLista(res.data); // pega dados armazenados em res e envia para essa function
+    console.log(res.data);
+
+  }
+
+
+  // é necessario SEMPRE ter um return para react funcionar corretamente
+  return(
+    <>
+      <Text>dkosad</Text>
+    </>
+  )
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// exportar a function App
+export default App;
