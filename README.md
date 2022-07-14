@@ -92,166 +92,43 @@ try {
 - bibliotecas necessarias
 
 ```js
-import { StatusBar } from 'expo-status-bar';
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Modal, TouchableOpacity, SafeAreaView, TextInput, Alert, ScrollView } from 'react-native';
-import { FaCheckCircle, FaTrash, FaPen } from 'react-icons/fa'; // npm i react-icons
-import axios from 'axios'; // npm i axios
+seState('');   // criar variaveis String
+  const [email, setEmail] = useState(''); // criar variaveis String
+  const [senha, setSenha] = useState(''); // criar variaveis String
+  const [id, setId] = useState('');        // criar variaveis String
+  const [buscar, setBuscar] = useState('');// criar variaveis String
+
+  /**
+   * Hooks são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
+   * O Effect Hook (Hook de Efeito) te permite executar efeitos colaterais em componentes funcionais:
+   */
+  useEffect(() => {
+    listarDados();
+  }, [])
 
 
-const [lista, setLista] = useState([]);
-const [nome, setNome] = useState('');
-const [email, setEmail] = useState('');
-const [senha, setSenha] = useState('');
-const [id, setId] = useState('');
-const [buscar, setBuscar] = useState('');
+  //async: permite utiliza (await) na function
+  // await: permite esperar até a tarefa seja finaliza e depois continua lendo o resto do codigo
+
+  async function listarDados() {
+    const res = await axios.get('http://localhost/myApp/listar.php'); // get = pega os dados desse endereco e armazena em (res)
+    setLista(res.data); // pega dados armazenados em res e envia para essa function
+    console.log(res.data);
+
+  }
 
 
-/**
- * Hooks são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
- * O Effect Hook (Hook de Efeito) te permite executar efeitos colaterais em componentes funcionais:
- */
-/*
-
-useEffect(() => {
-  listarDados();
-}, [])
-
-
-//async: permite utiliza (await) na function
-// await: permite esperar até a tarefa seja finaliza e depois continua lendo o resto do codigo
-
-async function listarDados() {
-  const res = await axios.get('http://localhost/myApp/listar.php'); // get = pega os dados desse endereco e armazena em (res)
-  setLista(res.data); // pega dados armazenados em res e envia para essa function
-  console.log(res.data);
+  // é necessario SEMPRE ter um return para react funcionar corretamente
+  return(
+    <>
+      <Text>dkosad</Text>
+    </>
+  )
 
 }
 
-/*
-const estilos = StyleSheet.create({
-  modal: {
-    flex: 1,
-    backgroundColor: '#b2b2b2'
-
-  },
-
-  textoModal: {
-
-    color: '#FFF',
-
-    marginLeft: 15,
-    fontSize: 25,
-
-
-  },
-
-  modalHeader: {
-
-    marginLeft: 10,
-    marginTop: 20,
-    alignItems: 'center',
-    flexDirection: 'row',
-    marginBottom: 30,
-
-  },
-
-
-  input: {
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    margin: 8,
-    padding: 8,
-    color: '#000',
-    fontSize: 13
-  },
-  botaoModal: {
-    backgroundColor: '#00335c',
-    borderRadius: 5,
-    margin: 5,
-    padding: 12,
-    color: '#FFF',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  },
-  textoBotaoModal: {
-    fontSize: 16,
-    color: '#FFF',
-
-  },
-
-  navbar: {
-    backgroundColor: '#00335c',
-    padding: 12,
-    color: '#FFF',
-    flexDirection: 'row',
-    marginTop: 35,
-
-  },
-
-  textonavbar: {
-    fontSize: 20,
-    color: '#FFF',
-    marginTop: 4,
-    marginBottom: 2,
-  },
-
-  botao: {
-    position: 'absolute',
-    right: 13,
-    marginTop: 11,
-  },
-
-
-  grid: {
-    marginTop: 8,
-
-  },
-
-  griditem: {
-    padding: 11,
-    borderBottomColor: "#dbdbdb",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  },
-
-  gridbotaoEditar: {
-    position: 'absolute',
-    right: 40,
-    color: '#5c7ef6',
-  },
-
-  gridbotaoExcluir: {
-    position: 'absolute',
-    right: 15,
-    color: '#cc1414',
-  },
-
-  inputBuscar: {
-    backgroundColor: '#FFF',
-    borderRadius: 5,
-    margin: 8,
-    padding: 8,
-    color: '#000',
-    fontSize: 15,
-    borderBottomColor: "#767676",
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    width: '100%',
-    position: 'relative',
-
-  },
-
-  ViewinputBuscar: {
-    flexDirection: 'row',
-  },
-
-  iconeBuscar: {
-    position: 'absolute',
-    right: 20,
-    top: 15,
-  }
-});
-
+// exportar a function App
+export default App;
 */
 ```
 ## Arquivo listar.php
